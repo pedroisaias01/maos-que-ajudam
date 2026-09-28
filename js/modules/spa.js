@@ -38,6 +38,8 @@ export function carregarPagina(pagina) {
 
     }
 
+    conteudo.focus();
+
 }
 
 
