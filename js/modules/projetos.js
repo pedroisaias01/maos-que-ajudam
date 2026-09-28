@@ -54,9 +54,11 @@ export function criarProjeto(projeto) {
             <h2>${projeto.titulo}</h2>
 
             <img
-                src="${projeto.imagem}"
-                alt="${projeto.alt}"
-            >
+    src="${projeto.imagem}"
+    alt="${projeto.alt}"
+    loading="lazy"
+    decoding="async"
+>
 
             <h3>Objetivo</h3>
 
