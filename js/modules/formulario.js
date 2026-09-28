@@ -173,11 +173,18 @@ export function ativarFormularioCadastro() {
                 "mensagem-erro-campo"
             );
 
+            mensagem.id =
+                `${campo.id}-erro`;
+
+            campo.setAttribute(
+                "aria-describedby",
+                mensagem.id
+            );
+
             campo.insertAdjacentElement(
                 "afterend",
                 mensagem
             );
-
         }
 
 
@@ -191,6 +198,11 @@ export function ativarFormularioCadastro() {
                 "campo-valido"
             );
 
+            campo.setAttribute(
+                "aria-invalid",
+                "false"
+            );
+
             mensagem.textContent = "";
 
         } else {
@@ -201,6 +213,11 @@ export function ativarFormularioCadastro() {
 
             campo.classList.add(
                 "campo-invalido"
+            );
+
+            campo.setAttribute(
+                "aria-invalid",
+                "true"
             );
 
 
