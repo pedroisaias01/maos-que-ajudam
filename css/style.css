@@ -815,3 +815,47 @@ form select:required:focus:invalid {
     margin-top: 0.3rem;
     margin-bottom: 0.5rem;
 }
+
+/* =========================================
+   MODO DE ALTO CONTRASTE
+========================================= */
+
+body.alto-contraste {
+    background: #000000;
+    color: #ffffff;
+
+    --cor-fundo-branco: #000000;
+    --cor-texto-preto: #ffffff;
+    --cor-primaria-azul: #00ffff;
+    --cor-secundaria-verde: #7cfc00;
+    --cor-destaque-amarelo: #ffff00;
+    --cor-alerta-vermelho: #ff6b6b;
+    --cor-neutra-cinza: #ffffff;
+}
+
+body.alto-contraste .navegacao,
+body.alto-contraste section,
+body.alto-contraste footer,
+body.alto-contraste form,
+body.alto-contraste fieldset {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.alto-contraste a {
+    color: #00ffff;
+}
+
+body.alto-contraste input,
+body.alto-contraste select,
+body.alto-contraste textarea,
+body.alto-contraste button {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+body.alto-contraste :focus-visible {
+    outline: 3px solid #ffff00;
+    outline-offset: 3px;
+}

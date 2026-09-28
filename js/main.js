@@ -12,7 +12,13 @@ import {
 
 iniciarNavegacao();
 
+iniciarAltoContraste();
+
 
 /* CARREGA A PÁGINA INICIAL */
 
 carregarPagina("inicio");
+
+import {
+    iniciarAltoContraste
+} from "./modules/acessibilidade.js";
