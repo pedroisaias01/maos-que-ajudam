@@ -1,0 +1,817 @@
+:root {
+
+    /* CORES */
+    --cor-primaria-azul: #0881c7;
+    --cor-secundaria-verde: #147710;
+    --cor-destaque-amarelo: #f0f711;
+    --cor-alerta-vermelho: #bf0016;
+    --cor-acento-rosa: #c41b46;
+    --cor-fundo-branco: #ddd8d8ce;
+    --cor-texto-preto: #000000;
+    --cor-neutra-cinza: #444444;
+
+    /* TIPOGRAFIA */
+    --fonte-titulo: 2.7rem;
+    --fonte-subtitulo: 1.9rem;
+    --fonte-titulo-de-secao: 1.5rem;
+    --fonte-texto-normal: 1rem;
+    --fonte-texto-pequeno: 0.8rem;
+
+    /* ESPAÇAMENTOS */
+    --espaco-muito-grande: 3.8rem;
+    --espaco-grande: 2.9rem;
+    --espaco-medio: 1.5rem;
+    --espaco-pequeno: 1rem;
+    --espaco-muito-pequeno: 0.5rem;
+}
+
+
+/* =========================
+   ESTILOS GERAIS
+========================= */
+
+body {
+    background-color: var(--cor-fundo-branco);
+    color: var(--cor-texto-preto);
+    font-size: var(--fonte-texto-normal);
+
+    margin: var(--espaco-pequeno);
+
+    /* Espaço para o menu fixo */
+    padding-top: 55px;
+}
+
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
+.navegacao {
+    position: fixed;
+
+    top: 0;
+    left: var(--espaco-pequeno);
+    right: var(--espaco-pequeno);
+
+    z-index: 1000;
+
+    background-color: var(--cor-fundo-branco);
+
+    border-bottom: 1px solid var(--cor-neutra-cinza);
+
+    padding-top: var(--espaco-muito-pequeno);
+    padding-bottom: var(--espaco-muito-pequeno);
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+
+/* FLEXBOX DO MENU */
+
+.menu {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: var(--espaco-medio);
+
+    flex-wrap: wrap;
+
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+.menu a {
+    display: block;
+
+    color: var(--cor-texto-preto);
+
+    text-decoration: none;
+
+    padding: var(--espaco-muito-pequeno);
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+
+.menu a:hover {
+    background-color: var(--cor-destaque-amarelo);
+}
+
+
+.menu a:focus {
+    outline: 2px solid var(--cor-primaria-azul);
+}
+
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.item-dropdown {
+    position: relative;
+}
+
+
+.submenu {
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    min-width: 210px;
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: var(--espaco-muito-pequeno);
+
+    background-color: var(--cor-fundo-branco);
+
+    border: 1px solid var(--cor-neutra-cinza);
+
+    border-radius: 8px;
+
+    z-index: 1100;
+}
+
+
+/* MOSTRA O SUBMENU COM MOUSE OU TECLADO */
+
+.item-dropdown:hover .submenu,
+.item-dropdown:focus-within .submenu {
+    display: block;
+}
+
+
+/* =========================
+   MENU HAMBÚRGUER
+========================= */
+
+.menu-toggle {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+}
+
+
+.menu-icon {
+    display: none;
+
+    padding: var(--espaco-pequeno);
+
+    background-color: var(--cor-secundaria-verde);
+
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.menu-toggle:focus + .menu-icon {
+    outline: 3px solid var(--cor-primaria-azul);
+}
+
+
+/* =========================
+   GRID PRINCIPAL
+========================= */
+
+main {
+    max-width: 1000px;
+
+    margin: 0 auto;
+    padding: var(--espaco-pequeno);
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    gap: var(--espaco-medio);
+}
+
+
+/* PÁGINA INICIAL */
+
+.apresentacao-inicial {
+    grid-column: 1 / -1;
+}
+
+.apresentacao-inicial img {
+    width: 100%;
+    max-height: 500px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: var(--espaco-pequeno);
+}
+
+
+.quem-somos {
+    grid-column: span 5;
+
+    padding: var(--espaco-pequeno);
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+
+.iniciativas {
+    grid-column: span 7;
+
+    padding: var(--espaco-pequeno);
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+
+.publico {
+    grid-column: span 6;
+
+    padding: var(--espaco-pequeno);
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+
+.como-ajudar {
+    grid-column: span 6;
+
+    padding: var(--espaco-pequeno);
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+
+/* =========================
+   PÁGINA DE PROJETOS
+========================= */
+
+.projetos {
+    grid-column: 1 / -1;
+
+    padding: var(--espaco-pequeno);
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+
+.projeto {
+    grid-column: span 6;
+
+    padding: var(--espaco-pequeno);
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-pequeno);
+}
+
+
+/* =========================
+   PÁGINA DE CADASTRO
+========================= */
+
+.apresentacao-cadastro {
+    grid-column: span 5;
+}
+
+
+.formulario-cadastro {
+    grid-column: span 7;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--espaco-pequeno);
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+section {
+    margin-bottom: var(--espaco-medio);
+}
+
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+form label {
+    display: block;
+
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 0.6rem;
+}
+
+
+fieldset {
+    margin-bottom: var(--espaco-pequeno);
+
+    padding: 0.6rem;
+}
+
+
+/* FEEDBACK DE FOCO NOS CAMPOS */
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: 2px solid var(--cor-primaria-azul);
+}
+
+
+/* =========================
+   BOTÃO
+========================= */
+
+button {
+    background-color: #d3d8e0;
+
+    color: var(--cor-texto-preto);
+
+    padding: 0.6rem;
+
+    border: 2px solid var(--cor-texto-preto);
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+
+button:hover {
+    background-color: var(--cor-secundaria-verde);
+
+    color: #ffffff;
+
+    cursor: pointer;
+}
+
+
+button:focus {
+    outline: 2px solid var(--cor-secundaria-verde);
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    font-size: var(--fonte-texto-pequeno);
+
+    color: var(--cor-neutra-cinza);
+
+    margin: var(--espaco-muito-pequeno);
+}
+
+/* BOTÃO PRESSIONADO */
+button:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 4px #444444;
+}
+
+/* BOTÃO DESABILITADO */
+button:disabled {
+    background-color: #cccccc;
+    color: var(--cor-neutra-cinza);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* CAMPO PREENCHIDO CORRETAMENTE */
+form input:required:valid,
+form select:required:valid {
+    border: 2px solid var(--cor-secundaria-verde);
+}
+
+/* CAMPO COM ERRO DURANTE O PREENCHIMENTO */
+form input:required:focus:invalid,
+form select:required:focus:invalid {
+    border: 2px solid var(--cor-alerta-vermelho);
+}
+
+/* BADGES */
+
+.badge {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    font-size: var(--fonte-texto-pequeno);
+    font-weight: bold;
+}
+
+.badge-ativo {
+    background-color: var(--cor-secundaria-verde);
+    color: #ffffff;
+}
+
+.badge-destaque {
+    background-color: var(--cor-destaque-amarelo);
+    color: var(--cor-texto-preto);
+}
+
+/* ALERTAS */
+
+.alerta {
+    grid-column: 1 / -1;
+    padding: var(--espaco-pequeno);
+    margin-top: var(--espaco-pequeno);
+    border-radius: 8px;
+    border-left: 5px solid;
+}
+
+.alerta-sucesso {
+    background-color: #e6f4e6;
+    border-color: var(--cor-secundaria-verde);
+    color: var(--cor-texto-preto);
+}
+
+.alerta-erro {
+    background-color: #f8e4e4;
+    border-color: var(--cor-alerta-vermelho);
+    color: var(--cor-texto-preto);
+}
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+    right: var(--espaco-pequeno);
+    bottom: var(--espaco-pequeno);
+
+    background-color: var(--cor-secundaria-verde);
+    color: #ffffff;
+
+    padding: var(--espaco-pequeno);
+
+    border-radius: 8px;
+
+    box-shadow: 0 4px 12px #444444;
+
+    font-weight: bold;
+
+    z-index: 100;
+}
+
+
+
+/* ==================================================
+   1 - CELULAR PEQUENO
+   ATÉ 480px
+================================================== */
+
+@media screen and (max-width: 480px) {
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    body {
+        margin: var(--espaco-muito-pequeno);
+    }
+
+
+    /* MOSTRA O BOTÃO HAMBÚRGUER */
+
+    .menu-icon {
+        display: block;
+    }
+
+
+    /* ESCONDE O MENU */
+
+    .navegacao {
+        display: none;
+    }
+
+
+    /* MOSTRA O MENU QUANDO O CHECKBOX ESTÁ MARCADO */
+
+    .menu-toggle:checked+.menu-icon+.navegacao {
+        display: block;
+    }
+
+
+    .menu {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+    }
+
+
+    .menu a {
+        text-align: center;
+
+        padding: 0.6rem;
+    }
+
+
+    /* DROPDOWN MOBILE */
+
+    .item-dropdown {
+        width: 100%;
+    }
+
+
+    .submenu {
+        position: static;
+
+        width: auto;
+        min-width: 0;
+
+        border: none;
+
+        background-color: #eeeeee;
+    }
+
+
+    .quem-somos,
+    .iniciativas,
+    .publico,
+    .como-ajudar,
+    .projetos,
+    .projeto,
+    .apresentacao-cadastro,
+    .formulario-cadastro {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* ==================================================
+   2 - CELULAR MAIOR
+   481px ATÉ 680px
+================================================== */
+
+@media screen and (min-width: 481px) and (max-width: 680px) {
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    body {
+        margin: var(--espaco-muito-pequeno);
+    }
+
+
+    .menu-icon {
+        display: block;
+    }
+
+
+    .navegacao {
+        display: none;
+    }
+
+
+    .menu-toggle:checked+.menu-icon+.navegacao {
+        display: block;
+    }
+
+
+    .menu {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+    }
+
+
+    .menu a {
+        text-align: center;
+
+        padding: 0.6rem;
+    }
+
+
+    .item-dropdown {
+        width: 100%;
+    }
+
+
+    .submenu {
+        position: static;
+
+        width: auto;
+        min-width: 0;
+
+        border: none;
+
+        background-color: #eeeeee;
+    }
+
+
+    .quem-somos,
+    .iniciativas,
+    .publico,
+    .como-ajudar,
+    .projetos,
+    .projeto,
+    .apresentacao-cadastro,
+    .formulario-cadastro {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* ==================================================
+   3 - TABLET
+   681px ATÉ 900px
+================================================== */
+
+@media screen and (min-width: 681px) and (max-width: 900px) {
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+
+    .quem-somos,
+    .iniciativas,
+    .projetos {
+        grid-column: 1 / -1;
+    }
+
+
+    .publico,
+    .como-ajudar,
+    .projeto {
+        grid-column: span 6;
+    }
+
+
+    .apresentacao-cadastro,
+    .formulario-cadastro {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* ==================================================
+   4 - NOTEBOOK / DESKTOP
+   901px ATÉ 1200px
+================================================== */
+
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+
+    main {
+        max-width: 1000px;
+    }
+
+
+    .quem-somos {
+        grid-column: span 5;
+    }
+
+
+    .iniciativas {
+        grid-column: span 7;
+    }
+
+
+    .publico,
+    .como-ajudar,
+    .projeto {
+        grid-column: span 6;
+    }
+
+
+    .projetos {
+        grid-column: 1 / -1;
+    }
+
+
+    .apresentacao-cadastro {
+        grid-column: span 5;
+    }
+
+
+    .formulario-cadastro {
+        grid-column: span 7;
+    }
+}
+
+
+/* ==================================================
+   5 - DESKTOP GRANDE
+   ACIMA DE 1201px
+================================================== */
+
+@media screen and (min-width: 1201px) {
+
+    main {
+        max-width: 1200px;
+    }
+
+
+    .quem-somos {
+        grid-column: span 5;
+    }
+
+
+    .iniciativas {
+        grid-column: span 7;
+    }
+
+
+    .publico,
+    .como-ajudar,
+    .projeto {
+        grid-column: span 6;
+    }
+
+
+    .projetos {
+        grid-column: 1 / -1;
+    }
+
+
+    .apresentacao-cadastro {
+        grid-column: span 5;
+    }
+
+
+    .formulario-cadastro {
+        grid-column: span 7;
+    }
+}
+
+/* =========================
+   VALIDAÇÃO DO FORMULÁRIO
+========================= */
+
+.campo-valido {
+    border: 2px solid var(--cor-secundaria-verde);
+}
+
+.campo-invalido {
+    border: 2px solid var(--cor-alerta-vermelho);
+}
+
+.mensagem-erro-campo {
+    display: block;
+
+    color: var(--cor-alerta-vermelho);
+
+    font-size: var(--fonte-texto-pequeno);
+
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+}
