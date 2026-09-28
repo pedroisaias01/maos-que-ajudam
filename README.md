@@ -51,3 +51,9 @@ projeto-ong/
 │       ├── spa.js
 │       └── storage.js
 └── README.md
+
+## Aplicação em produção
+
+A aplicação está publicada no Netlify:
+
+https://splendid-pegasus-f69072.netlify.app
